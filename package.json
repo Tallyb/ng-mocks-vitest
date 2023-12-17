@@ -1,0 +1,47 @@
+{
+  "name": "kkvixqjnb.github",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "dependencies": {
+    "@angular/animations": "17.0.7",
+    "@angular/common": "17.0.7",
+    "@angular/core": "17.0.7",
+    "@angular/forms": "17.0.7",
+    "@angular/platform-browser": "17.0.7",
+    "@angular/platform-browser-dynamic": "17.0.7",
+    "@angular/router": "17.0.7",
+    "core-js": "3.34.0",
+    "lightningcss": "^1.21.0",
+    "rxjs": "7.8.1",
+    "terser": "^5.26.0",
+    "tslib": "2.6.1",
+    "zone.js": "0.14.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "17.0.7",
+    "@angular/cli": "17.0.7",
+    "@angular/compiler": "17.0.7",
+    "@angular/compiler-cli": "17.0.7",
+    "@types/jest": "^29.5.11",
+    "@types/node": "20.10.4",
+    "devtools": "^8.26.0",
+    "jsdom": "^23.0.1",
+    "less": "^4.2.0",
+    "ng-mocks": "14.12.1",
+    "playwright": "^1.38.1",
+    "postcss": "^8.4.32",
+    "sass": "^1.68.0",
+    "stylus": "^0.62.0",
+    "sugarss": "^4.0.1",
+    "typescript": "^5.2.0",
+    "vitest": "^1.0.4"
+  }
+}

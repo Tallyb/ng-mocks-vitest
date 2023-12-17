@@ -1,0 +1,47 @@
+import { CommonModule } from '@angular/common';
+import { describe, it, beforeEach, expect, vitest, beforeAll} from 'vitest';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  NgModule,
+  Output,
+} from '@angular/core';
+import { MockBuilder, MockRender, ngMocks } from 'ng-mocks';
+
+@Component({
+  selector: 'app-target',
+  template: `<a (click)="click.emit()">name: {{ name }}</a>`,
+})
+class TargetComponent {
+  @Input() public readonly name: string = '';
+  @Output()
+  public readonly click: EventEmitter<void> = new EventEmitter();
+}
+@NgModule({
+  imports: [CommonModule],
+  declarations: [TargetComponent],
+})
+class TargetModule {}
+
+describe('my sandbox', () => {
+  beforeAll(async () => {
+    await MockBuilder(TargetComponent, TargetModule)
+  });
+
+  it('should do something', () => {
+    const spy = vitest.fn();
+    const fixture = MockRender(TargetComponent, {
+      name: 'sandbox',
+      click: spy,
+    });
+    expect(fixture.point.nativeElement.innerHTML).toContain(
+      'name: sandbox',
+    );
+
+    const link = ngMocks.find(fixture.debugElement, 'a');
+    expect(spy).not.toHaveBeenCalled();
+    link.triggerEventHandler('click', null);
+    expect(spy).toHaveBeenCalled();
+  });
+});
